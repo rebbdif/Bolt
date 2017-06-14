@@ -9,8 +9,6 @@
 #import "SLVFlightListOperation.h"
 #import "SLVFlightsListModel.h"
 
-static NSString *const url = @"http://partners.api.skyscanner.net/apiservices/browsequotes/v1.0/RU/eur/en-US/us/anywhere/anytime/anytime?apiKey=prtl6749387986743898559646983194";
-
 @interface SLVFlightListOperation()
 
 @property (nonatomic, weak) SLVFlightsListModel *model;
@@ -37,7 +35,7 @@ static NSString *const url = @"http://partners.api.skyscanner.net/apiservices/br
     dispatch_semaphore_t hotelsSemaphore = dispatch_semaphore_create(0);
     
     NSOperation *downloadFlights = [NSBlockOperation blockOperationWithBlock:^{
-        [self.networkDelegate getDictionaryFromURL:[NSURL URLWithString:url] withCompletionBlock:^(NSDictionary *data) {
+        [self.networkDelegate getDictionaryFromURL:[self createFligthtsURL] withCompletionBlock:^(NSDictionary *data) {
             [self.model parseFlights:data];
             dispatch_semaphore_signal(flightSemaphore);
         }];
@@ -53,6 +51,24 @@ static NSString *const url = @"http://partners.api.skyscanner.net/apiservices/br
     
     [queue addOperation:downloadHotels];
     dispatch_semaphore_wait(hotelsSemaphore, DISPATCH_TIME_FOREVER);
+}
+
+- (NSURL *)createFligthtsURL {
+    NSString *base = @"http://partners.api.skyscanner.net/apiservices";
+    NSString *method = @"browsequotes/v1.0";
+    NSString *market = @"RU";
+    NSString *currency = @"RUB";
+    NSString *locale = @"ru-RU";
+    NSString *origin = @"mosc"; //доставать из userdefaults, а до этого использовать апи мест;
+    NSString *destination = @"anywhere";
+    NSString *outboundDate = @"anytime";
+    NSString *inboundDate = @"anytime";
+    NSString *apiKey = @"prtl6749387986743898559646983194";
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@/%@/%@?apiKey=%@", base, method,
+                     market, currency, locale,
+                     origin, destination, outboundDate, inboundDate, apiKey];
+    
+    return [NSURL URLWithString:url];
 }
 
 

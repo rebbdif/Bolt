@@ -11,6 +11,12 @@
 #import "UIColor+SLVColor.h"
 @import Masonry;
 
+@interface SLVFlightsTableViewCell()
+
+@property (nonatomic, strong) UIView *darkView;
+
+@end
+
 @implementation SLVFlightsTableViewCell
 
 + (BOOL)requiresConstraintBasedLayout {
@@ -26,6 +32,10 @@
 }
 
 - (void)configureCell {
+    _darkView = [UIView new];
+    _darkView.backgroundColor = [UIColor darkSkyColor];
+    [self.contentView addSubview:_darkView];
+    
     _title = [UILabel new];
     _title.font = [UIFont titleHelvetica];
     _title.adjustsFontSizeToFitWidth = YES;
@@ -53,11 +63,17 @@
     _dates.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:_dates];
     
-    self.contentView.backgroundColor = [UIColor darkSkyColor];
+    self.contentView.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)updateConstraints {
     UIView *contentView = self.contentView;
+    [self.darkView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(contentView.mas_left);
+        make.right.equalTo(contentView.mas_right);
+        make.top.equalTo(contentView.mas_top).with.offset(0);
+        make.bottom.equalTo(contentView.mas_bottom).with.offset(0);
+    }];
     [self.dates mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(contentView.mas_left).with.offset(8);
         make.top.equalTo(contentView.mas_top).with.offset(14);

@@ -41,6 +41,8 @@ static NSString *const SLVFligthsTableViewCellReuseIdentifier = @"SLVFligthsTabl
     self.tableView.delegate = self;
     [self.tableView registerClass:[SLVFlightsTableViewCell class] forCellReuseIdentifier:SLVFligthsTableViewCellReuseIdentifier];
     self.tableView.rowHeight = 130;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Фильтры" style:UIBarButtonItemStylePlain target:self action:@selector(settings:)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -56,6 +58,10 @@ static NSString *const SLVFligthsTableViewCellReuseIdentifier = @"SLVFligthsTabl
             [strongself.tableView reloadData];
         });
     }];
+}
+
+- (IBAction)settings:(id)sender {
+    
 }
 
 #pragma mark - UITableViewDelegate
