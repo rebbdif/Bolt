@@ -10,6 +10,10 @@
 
 @implementation UIColor (SLVColor)
 
++ (UIColor *)shortcutWithRed:(float)red green:(float)green blue:(float)blue alpha:(float)alpha {
+    return [UIColor colorWithRed:red/255.0 green:green/255.0 blue:blue/255.0 alpha:alpha/100.0];
+}
+
 + (UIColor *)grayLabelColor {
     return [UIColor shortcutWithRed:205 green:205 blue:205 alpha:100];
 }
@@ -18,8 +22,9 @@
     return [UIColor shortcutWithRed:208 green:2 blue:27 alpha:100];
 }
 
-+ (UIColor *)shortcutWithRed:(float)red green:(float)green blue:(float)blue alpha:(float)alpha {
-    return [UIColor colorWithRed:red/255.0 green:205/255.0 blue:205/255.0 alpha:1/100.0];
++ (UIColor *)darkSkyColor {
+    UIColor *darkSkyColor = [UIColor shortcutWithRed:38 green:13 blue:86 alpha:100];
+    return darkSkyColor;
 }
 
 @end

@@ -11,9 +11,9 @@
 		635722E31EF01CDE000BB6CD /* SLVFlightListOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 635722E21EF01CDE000BB6CD /* SLVFlightListOperation.m */; };
 		635722E71EF1716A000BB6CD /* UIFont+SLVFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 635722E61EF1716A000BB6CD /* UIFont+SLVFont.m */; };
 		635722EB1EF17483000BB6CD /* UIColor+SLVColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 635722EA1EF17483000BB6CD /* UIColor+SLVColor.m */; };
+		635722EE1EF1806B000BB6CD /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 635722ED1EF1806B000BB6CD /* Masonry.framework */; };
 		636D52381EB7A0380060AF99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 636D52371EB7A0380060AF99 /* main.m */; };
 		636D523B1EB7A0380060AF99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 636D523A1EB7A0380060AF99 /* AppDelegate.m */; };
-		636D52441EB7A0380060AF99 /* Bolt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 636D52421EB7A0380060AF99 /* Bolt.xcdatamodeld */; };
 		636D52461EB7A0380060AF99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 636D52451EB7A0380060AF99 /* Assets.xcassets */; };
 		636D52491EB7A0380060AF99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 636D52471EB7A0380060AF99 /* LaunchScreen.storyboard */; };
 		636D52541EB7A0390060AF99 /* BoltTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 636D52531EB7A0390060AF99 /* BoltTests.m */; };
@@ -53,11 +53,11 @@
 		635722E61EF1716A000BB6CD /* UIFont+SLVFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+SLVFont.m"; path = "Fonts/UIFont+SLVFont.m"; sourceTree = "<group>"; };
 		635722E91EF17483000BB6CD /* UIColor+SLVColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+SLVColor.h"; path = "Fonts/UIColor+SLVColor.h"; sourceTree = "<group>"; };
 		635722EA1EF17483000BB6CD /* UIColor+SLVColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+SLVColor.m"; path = "Fonts/UIColor+SLVColor.m"; sourceTree = "<group>"; };
+		635722ED1EF1806B000BB6CD /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Masonry.framework; path = Carthage/Build/iOS/Masonry.framework; sourceTree = "<group>"; };
 		636D52331EB7A0380060AF99 /* Bolt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bolt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		636D52371EB7A0380060AF99 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		636D52391EB7A0380060AF99 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		636D523A1EB7A0380060AF99 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		636D52431EB7A0380060AF99 /* Bolt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bolt.xcdatamodel; sourceTree = "<group>"; };
 		636D52451EB7A0380060AF99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		636D52481EB7A0380060AF99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		636D524A1EB7A0380060AF99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				635722EE1EF1806B000BB6CD /* Masonry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +141,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		635722EC1EF1806B000BB6CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				635722ED1EF1806B000BB6CD /* Masonry.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		636D522A1EB7A0370060AF99 = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +156,7 @@
 				636D52521EB7A0390060AF99 /* BoltTests */,
 				636D525D1EB7A0390060AF99 /* BoltUITests */,
 				636D52341EB7A0380060AF99 /* Products */,
+				635722EC1EF1806B000BB6CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,7 +252,6 @@
 				636D523A1EB7A0380060AF99 /* AppDelegate.m */,
 				636D52471EB7A0380060AF99 /* LaunchScreen.storyboard */,
 				636D524A1EB7A0380060AF99 /* Info.plist */,
-				636D52421EB7A0380060AF99 /* Bolt.xcdatamodeld */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -266,6 +275,7 @@
 				636D522F1EB7A0370060AF99 /* Sources */,
 				636D52301EB7A0370060AF99 /* Frameworks */,
 				636D52311EB7A0370060AF99 /* Resources */,
+				635722EF1EF1808E000BB6CD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -386,6 +396,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		635722EF1EF1808E000BB6CD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Masonry.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		636D522F1EB7A0370060AF99 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -396,7 +423,6 @@
 				636D523B1EB7A0380060AF99 /* AppDelegate.m in Sources */,
 				636D526E1EB7A1BE0060AF99 /* SLVFlightsTableController.m in Sources */,
 				635722E31EF01CDE000BB6CD /* SLVFlightListOperation.m in Sources */,
-				636D52441EB7A0380060AF99 /* Bolt.xcdatamodeld in Sources */,
 				636D52761EB7A55F0060AF99 /* SLVFlightsTableViewCell.m in Sources */,
 				636D527D1EB7A8520060AF99 /* SLVFlight.m in Sources */,
 				635722E71EF1716A000BB6CD /* UIFont+SLVFont.m in Sources */,
@@ -544,6 +570,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4BVAFGEHDW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Bolt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -558,6 +588,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4BVAFGEHDW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Bolt/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -657,19 +691,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		636D52421EB7A0380060AF99 /* Bolt.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				636D52431EB7A0380060AF99 /* Bolt.xcdatamodel */,
-			);
-			currentVersion = 636D52431EB7A0380060AF99 /* Bolt.xcdatamodel */;
-			path = Bolt.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 636D522B1EB7A0370060AF99 /* Project object */;
 }

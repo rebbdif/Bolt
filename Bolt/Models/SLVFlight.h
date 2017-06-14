@@ -11,9 +11,10 @@
 @interface SLVFlight : NSObject
 
 @property (nonatomic, strong) NSString *destination;
-@property (nonatomic, strong) NSString *price;
+@property (nonatomic, strong) NSString *flightPrice;
 @property (nonatomic, strong) NSString *departureDate;
 @property (nonatomic, strong) NSString *arrivalDate;
+@property (nonatomic, strong) NSString *hotelPrice;
 
 + (SLVFlight *)flightWithDictionary:(NSDictionary *)parameters;
 

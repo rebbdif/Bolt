@@ -13,12 +13,13 @@
 
 + (SLVFlight *)flightWithDictionary:(NSDictionary *)parameters {
     SLVFlight *flight = [SLVFlight new];
-    flight.price = parameters[@"MinPrice"];
+    flight.flightPrice = [NSString stringWithFormat:@"%@", parameters[@"MinPrice"]];
     NSDictionary *outboundLeg = parameters[@"OutboundLeg"];
-    flight.destination = outboundLeg[@"DestinationId"];
-    flight.departureDate = outboundLeg[@"DepartureDate"];
+    flight.destination = [NSString stringWithFormat: @"%@", outboundLeg[@"DestinationId"]];
+    flight.departureDate = [NSString stringWithFormat:@"%@", outboundLeg[@"DepartureDate"]];
     NSDictionary *inboundLeg = parameters[@"InboundLeg"];
-    flight.arrivalDate = inboundLeg[@"DepartureDate"];
+    flight.arrivalDate = [NSString stringWithFormat:@"%@", inboundLeg[@"DepartureDate"]];
+    flight.hotelPrice = @"990";
     return flight;
 }
 

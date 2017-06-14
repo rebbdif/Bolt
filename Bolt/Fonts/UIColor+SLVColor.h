@@ -14,4 +14,6 @@
 
 + (UIColor *)darkRedColor;
 
++ (UIColor *)darkSkyColor;
+
 @end

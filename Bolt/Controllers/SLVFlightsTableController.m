@@ -40,7 +40,7 @@ static NSString *const SLVFligthsTableViewCellReuseIdentifier = @"SLVFligthsTabl
     self.tableView.dataSource = self.dataSource;
     self.tableView.delegate = self;
     [self.tableView registerClass:[SLVFlightsTableViewCell class] forCellReuseIdentifier:SLVFligthsTableViewCellReuseIdentifier];
-    self.tableView.rowHeight = 108;
+    self.tableView.rowHeight = 130;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -56,6 +56,12 @@ static NSString *const SLVFligthsTableViewCellReuseIdentifier = @"SLVFligthsTabl
             [strongself.tableView reloadData];
         });
     }];
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

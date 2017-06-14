@@ -9,6 +9,7 @@
 #import "SLVFlightsTableViewCell.h"
 #import "UIFont+SLVFont.h"
 #import "UIColor+SLVColor.h"
+@import Masonry;
 
 @implementation SLVFlightsTableViewCell
 
@@ -47,11 +48,38 @@
     _dates.layer.cornerRadius = 50;
     _dates.layer.borderColor = [UIColor grayColor].CGColor;
     _dates.layer.borderWidth = 1;
+    _dates.layer.masksToBounds = YES;
+    _dates.numberOfLines = 3;
+    _dates.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:_dates];
+    
+    self.contentView.backgroundColor = [UIColor darkSkyColor];
 }
 
 - (void)updateConstraints {
-    
+    UIView *contentView = self.contentView;
+    [self.dates mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(contentView.mas_left).with.offset(8);
+        make.top.equalTo(contentView.mas_top).with.offset(14);
+        make.bottom.equalTo(contentView.mas_bottom).with.offset(-16);
+        make.size.equalTo(@100);
+    }];
+    [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.dates.mas_right).with.offset(17);
+        make.top.equalTo(self.contentView.mas_top).with.offset(15);
+        make.right.equalTo(self.contentView.mas_right).with.offset(-6);
+        make.height.equalTo(@39);
+    }];
+    [self.flight mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.dates.mas_right).with.offset(20);
+        make.top.equalTo(self.title.mas_bottom).with.offset(6);
+        make.height.equalTo(@24);
+    }];
+    [self.hotel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.flight.mas_bottom).with.offset(5);
+        make.left.equalTo(self.flight.mas_left);
+        make.height.equalTo(@24);
+    }];
     [super updateConstraints];
 }
 

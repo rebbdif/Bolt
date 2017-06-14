@@ -39,11 +39,13 @@ static NSString *const SLVFligthsTableViewCellReuseIdentifier = @"SLVFligthsTabl
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SLVFlightsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SLVFligthsTableViewCellReuseIdentifier];
     SLVFlight *currentFlight = [self.model itemForRow:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"Destination: %@", currentFlight.destination];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Price: %@", currentFlight.price];
+    cell.title.text = [NSString stringWithFormat: @"%@",currentFlight.destination];
+    cell.dates.text = [NSString stringWithFormat:@"%@ - %@", currentFlight.departureDate, currentFlight.arrivalDate];
+    cell.hotel.text = [NSString stringWithFormat:@"Отель: %@", currentFlight.hotelPrice];
+    cell.flight.text = [NSString stringWithFormat:@"Цена перелета: %@", currentFlight.flightPrice];
+   
     return cell;
 }
-
 
 
 @end
